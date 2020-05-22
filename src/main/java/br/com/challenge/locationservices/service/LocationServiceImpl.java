@@ -19,7 +19,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     private void validate(final String postalCode) {
-        if (postalCode == null) {
+        if (postalCode.isEmpty()) {
             throw new ValidationException(ErrorCodes.POSTAL_CODE_IS_MANDATORY);
         }
 

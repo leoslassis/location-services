@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/location")
+@RequestMapping("/rs/location")
 public class LocationEndpoint {
 
     @Autowired
     private LocationServiceImpl locationService;
 
     @GetMapping
-    public ResponseEntity<LocationResource> findByPostalCode(@RequestParam("postalCode") String postalCode){
+    public ResponseEntity<LocationResource> findByPostalCode(
+            @RequestParam(name = "postalCode", required = true) String postalCode){
         return ResponseEntity.ok(locationService.findByPostalCode(postalCode));
     }
 }

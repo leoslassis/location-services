@@ -23,10 +23,11 @@ public class LocationRepository {
 
     private String assignZeroToTheEnd(String postalCode) {
 
-        char[] chars = postalCode.toCharArray();
-        for(char character : chars){
-            if (character!= '0') {
-                postalCode.replace(character, '0');
+        StringBuilder postalCodeBuilder = new StringBuilder(postalCode);
+
+        for (int i = postalCodeBuilder.length(); i > 0; i--) {
+            if (postalCodeBuilder.charAt(i - 1) != '0') {
+                postalCodeBuilder.setCharAt(i - 1, '0');
                 break;
             }
         }
@@ -35,7 +36,7 @@ public class LocationRepository {
             throw new NotFoundException(ErrorCodes.POSTAL_CODE_NOT_FOUND);
         }
 
-        return postalCode;
+        return postalCodeBuilder.toString();
 
     }
 }
