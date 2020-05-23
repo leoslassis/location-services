@@ -17,7 +17,7 @@ $ docker-compose up
 
 Após executar os comandos temos a aplicação em execução no container, junto com o mysql já populado com algumas localidades
 
-Obs: para executar local, o MySQL do docker deve estar de pé, e alterar a url do banco no application.properties de "MySQL" para "localhost:3306"
+Obs: para executar local, o MySQL do docker deve estar de pé, e alterar a url do banco no application.properties de "mysql" para "localhost:3306"
 
 A documentaço da aplicação consta nessa url 
 (http://localhost:8080/swagger-ui.html#/)
