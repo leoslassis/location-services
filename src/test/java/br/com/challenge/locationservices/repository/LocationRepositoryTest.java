@@ -1,6 +1,7 @@
 package br.com.challenge.locationservices.repository;
 
 import br.com.challenge.locationservices.LocationServicesApplication;
+import br.com.challenge.locationservices.infra.exception.NotFoundException;
 import br.com.challenge.locationservices.repository.entity.LocationEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -21,9 +23,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LocationRepositoryTest {
 
     private final String POSTAL_CODE_VALID = "08295789";
-    private final String POSTAL_CODE_INVALID = "123456789";
-    private final String POSTAL_CODE_INVALID_2 = "123456709";
-    private final String POSTAL_CODE_INVALID_3 = "123456700";
+    private final String POSTAL_CODE_INVALID = "12456789";
+    private final String POSTAL_CODE_INVALID_2 = "12456709";
+    private final String POSTAL_CODE_INVALID_3 = "12456700";
+    private final String POSTAL_CODE_INVALID_4 = "00000000";
+
 
     @Autowired
     private LocationJpaRepository locationRepository;
@@ -46,18 +50,25 @@ public class LocationRepositoryTest {
     @Test
     public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd() {
         String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID);
-        assertThat(postalCode).isEqualTo("123456780");
+        assertThat(postalCode).isEqualTo("12456780");
     }
 
     @Test
     public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd2() {
         String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_2);
-        assertThat(postalCode).isEqualTo("123456700");
+        assertThat(postalCode).isEqualTo("12456700");
     }
 
     @Test
     public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd3() {
         String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_3);
-        assertThat(postalCode).isEqualTo("123456000");
+        assertThat(postalCode).isEqualTo("12456000");
+    }
+
+    @Test
+    public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd4() {
+        assertThrows(NotFoundException.class, () -> {
+            locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_4);
+        });
     }
 }

@@ -38,10 +38,6 @@ public class SwaggerConfigProperties {
         return apiVersion;
     }
 
-    public void setApiVersion(String apiVersion) {
-        this.apiVersion = apiVersion;
-    }
-
     public String getEnabled() {
         return enabled;
     }
@@ -69,56 +65,27 @@ public class SwaggerConfigProperties {
     public String getDefaultModelsExpandDepth() {
         return defaultModelsExpandDepth;
     }
-
-    public void setDefaultModelsExpandDepth(String defaultModelsExpandDepth) {
-        this.defaultModelsExpandDepth = defaultModelsExpandDepth;
-    }
-
     public String getDefaultModelExpandDepth() {
         return defaultModelExpandDepth;
-    }
-
-    public void setDefaultModelExpandDepth(String defaultModelExpandDepth) {
-        this.defaultModelExpandDepth = defaultModelExpandDepth;
     }
 
     public String getDisplayOperationId() {
         return displayOperationId;
     }
 
-    public void setDisplayOperationId(String displayOperationId) {
-        this.displayOperationId = displayOperationId;
-    }
-
     public String getDisplayRequestDuration() {
         return displayRequestDuration;
-    }
-
-    public void setDisplayRequestDuration(String displayRequestDuration) {
-        this.displayRequestDuration = displayRequestDuration;
     }
 
     public String getFilter() {
         return filter;
     }
 
-    public void setFilter(String filter) {
-        this.filter = filter;
-    }
-
     public String getMaxDisplayedTags() {
         return maxDisplayedTags;
     }
 
-    public void setMaxDisplayedTags(String maxDisplayedTags) {
-        this.maxDisplayedTags = maxDisplayedTags;
-    }
-
     public String getShowExtensions() {
         return showExtensions;
-    }
-
-    public void setShowExtensions(String showExtensions) {
-        this.showExtensions = showExtensions;
     }
 }
