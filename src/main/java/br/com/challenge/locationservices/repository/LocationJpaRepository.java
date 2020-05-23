@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 public interface LocationJpaRepository extends JpaRepository<LocationEntity, Long> {
 
    Optional<LocationEntity> findByPostalCode(String postalCode);

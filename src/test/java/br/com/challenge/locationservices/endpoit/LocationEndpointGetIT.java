@@ -1,5 +1,7 @@
-package br.com.challenge.locationservices;
+package br.com.challenge.locationservices.endpoit;
 
+import br.com.challenge.locationservices.IntegrationTest;
+import br.com.challenge.locationservices.LocationServicesApplication;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +20,7 @@ import static org.hamcrest.core.Is.is;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = {LocationServicesApplication.class})
 @Sql({"/sql/clean-all.sql", "/sql/location-endpoint.sql"})
-public class LocationServicesApplicationTests extends IntegrationTest{
+public class LocationEndpointGetIT extends IntegrationTest {
 
 	@Test
 	public void shouldReturnLocationOkWhenPostalCodeParamExisting() {

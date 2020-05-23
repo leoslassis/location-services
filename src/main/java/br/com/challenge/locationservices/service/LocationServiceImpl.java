@@ -4,6 +4,7 @@ import br.com.challenge.locationservices.endpoint.resource.LocationResource;
 import br.com.challenge.locationservices.infra.exception.ValidationException;
 import br.com.challenge.locationservices.infra.exception.code.ErrorCodes;
 import br.com.challenge.locationservices.repository.LocationRepository;
+import br.com.challenge.locationservices.repository.LocationRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,7 @@
 package br.com.challenge.locationservices.endpoint;
 
 import br.com.challenge.locationservices.endpoint.resource.LocationResource;
+import br.com.challenge.locationservices.service.LocationService;
 import br.com.challenge.locationservices.service.LocationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LocationEndpoint {
 
     @Autowired
-    private LocationServiceImpl locationService;
+    private LocationService locationService;
 
     @GetMapping
     public ResponseEntity<LocationResource> findByPostalCode(
