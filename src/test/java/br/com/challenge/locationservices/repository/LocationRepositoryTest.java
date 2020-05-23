@@ -23,6 +23,7 @@ public class LocationRepositoryTest {
     private final String POSTAL_CODE_VALID = "08295789";
     private final String POSTAL_CODE_INVALID = "123456789";
     private final String POSTAL_CODE_INVALID_2 = "123456709";
+    private final String POSTAL_CODE_INVALID_3 = "123456700";
 
     @Autowired
     private LocationJpaRepository locationRepository;
@@ -52,5 +53,11 @@ public class LocationRepositoryTest {
     public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd2() {
         String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_2);
         assertThat(postalCode).isEqualTo("123456700");
+    }
+
+    @Test
+    public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd3() {
+        String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_3);
+        assertThat(postalCode).isEqualTo("123456000");
     }
 }
