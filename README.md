@@ -40,3 +40,16 @@ O projeto foi desenvolvido com algumas tecnologias de mercado:
  - Mysql
  
 ## 2. Quando você digita a URL de um site (http://www.netshoes.com.br) no browser e pressiona enter, explique da forma que preferir, o que ocorre nesse processo do protocolo HTTP entre o Client e o Server.
+
+HTTP é um protocolo utilizado para a comunicação de clientes e servidores. 
+
+Os clientes são os responsáveis por fazerem as requisições e os servidores responsáveis por responder essa requisição (conhecidos como requests e responses).
+
+O cliente normalmente faz solicitaçao de algum recurso (resource), enviando algumas informações (body) contendo alguns cabeçalhos(headers) a uma determinada "URL" e o servidor recebe essa requisição e manda uma resposta, podendo conter cabeçalhos tambem para esse cliente.
+
+Esses cabeçalhos(headers) enviado pelo cliente contem informações bastante uteis para o servidos, como qual é o path que foi solicitado, qual o metodo HTTP, e até mesmo o host de identificação do cliente. O servidor recebe todos esses dados e por fim consegue identificar atraves dos cabeçalhos o que deve ser feito(metodo HTTP e path), gerando assim uma resposta para esse cliente, nessa resposta normalmente contem o HTTP status daquela requisição, o que o cliente pode identificar se houve falha ou sucesso na requisição e tratar da maneira que convem.
+
+
+Então ao chamar a URL http://www.netshoes.com.br, estamos fazendo uma requisição para algum servidor da netshoes, passando o metodo GET, dizendo que queremos receber os recursos daquela URL. O servidor por si, identifica essa requisição e nos responde se foi ok, atraves do seu status, e nos retornar algum tipo mensageria, mas provavelmente nesse caso eles nos devolve um html, onde é montado toda a interface do site.
+
+Obs: normalmente existem alguns proxys entre essa comunicação cliente e servidor.
