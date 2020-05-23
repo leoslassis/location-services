@@ -1,4 +1,4 @@
-package br.com.challenge.locationservices.converter;
+package br.com.challenge.locationservices.repository.converter;
 
 import br.com.challenge.locationservices.endpoint.resource.LocationResource;
 import br.com.challenge.locationservices.repository.entity.LocationEntity;

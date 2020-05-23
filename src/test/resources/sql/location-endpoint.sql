@@ -11,4 +11,4 @@ INSERT INTO location (id, street, district, city, state, postal_code)
 VALUES (4, 'Rua D', 'Bairro D', 'Cidade D', 'Estado D', '08295789');
 
 INSERT INTO location (id, street, district, city, state, postal_code)
-VALUES (5, 'Rua E', 'Bairro E', 'Cidade E', 'Estado E', '08295123');
+VALUES (5, 'Rua E', 'Bairro E', 'Cidade E', 'Estado E', '08295100');
