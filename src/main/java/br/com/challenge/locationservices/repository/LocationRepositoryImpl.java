@@ -21,7 +21,7 @@ public class LocationRepositoryImpl implements LocationRepository{
                 .orElseGet(() -> converter.toEntity(findByPostalCode(assignZeroToTheEnd(postalCode)))));
     }
 
-    private String assignZeroToTheEnd(String postalCode) {
+    public String assignZeroToTheEnd(String postalCode) {
 
         StringBuilder postalCodeBuilder = new StringBuilder(postalCode);
 

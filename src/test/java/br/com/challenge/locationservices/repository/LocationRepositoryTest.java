@@ -1,7 +1,6 @@
 package br.com.challenge.locationservices.repository;
 
 import br.com.challenge.locationservices.LocationServicesApplication;
-import br.com.challenge.locationservices.endpoint.resource.LocationResource;
 import br.com.challenge.locationservices.repository.entity.LocationEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,9 +22,13 @@ public class LocationRepositoryTest {
 
     private final String POSTAL_CODE_VALID = "08295789";
     private final String POSTAL_CODE_INVALID = "123456789";
+    private final String POSTAL_CODE_INVALID_2 = "123456709";
 
     @Autowired
     private LocationJpaRepository locationRepository;
+
+    @Autowired
+    private LocationRepositoryImpl locationRepositoryImpl;
 
     @Test
     public void givenPostalCodeValidWhenFindFindByPostalCodeThenReturnLocation() {
@@ -37,5 +40,17 @@ public class LocationRepositoryTest {
     public void givenPostalCodeInvalidWhenFindFindByPostalCodeThenReturnOptionalEmpty() {
         Optional<LocationEntity> location = locationRepository.findByPostalCode(POSTAL_CODE_INVALID);
         assertThat(location.isPresent()).isEqualTo(false);
+    }
+
+    @Test
+    public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd() {
+        String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID);
+        assertThat(postalCode).isEqualTo("123456780");
+    }
+
+    @Test
+    public void givenPostalCodeNotFoundWhenAssignZeroToTheEndThenReturnPostalCodeWithZeroToTheEnd2() {
+        String postalCode = locationRepositoryImpl.assignZeroToTheEnd(POSTAL_CODE_INVALID_2);
+        assertThat(postalCode).isEqualTo("123456700");
     }
 }
