@@ -9,14 +9,6 @@ public class Error {
 	private String message;
 	private String localizedMessage;
 
-	public Error() {
-	}
-
-	public Error(Integer code, String message) {
-		this.code = code;
-		this.message = message;
-	}
-
 	public Error(Integer code, String message, String localizedMessage) {
 		this.code = code;
 		this.message = message;
@@ -27,23 +19,11 @@ public class Error {
 		return code;
 	}
 
-	public void setCode(Integer code) {
-		this.code = code;
-	}
-
 	public String getMessage() {
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public String getLocalizedMessage() {
 		return localizedMessage;
-	}
-
-	public void setLocalizedMessage(String localizedMessage) {
-		this.localizedMessage = localizedMessage;
 	}
 }

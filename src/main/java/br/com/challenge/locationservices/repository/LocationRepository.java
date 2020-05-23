@@ -4,8 +4,11 @@ import br.com.challenge.locationservices.converter.LocationConverterImpl;
 import br.com.challenge.locationservices.endpoint.resource.LocationResource;
 import br.com.challenge.locationservices.infra.exception.NotFoundException;
 import br.com.challenge.locationservices.infra.exception.code.ErrorCodes;
+import br.com.challenge.locationservices.repository.entity.LocationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public class LocationRepository {
@@ -18,7 +21,7 @@ public class LocationRepository {
 
     public LocationResource findByPostalCode(String postalCode) {
         return converter.fromResource(locationJpaRepository.findByPostalCode(postalCode)
-                .orElse(converter.toEntity(findByPostalCode(assignZeroToTheEnd(postalCode)))));
+                .orElseGet(() -> converter.toEntity(findByPostalCode(assignZeroToTheEnd(postalCode)))));
     }
 
     private String assignZeroToTheEnd(String postalCode) {

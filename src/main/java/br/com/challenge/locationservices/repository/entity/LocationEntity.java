@@ -67,4 +67,12 @@ public class LocationEntity {
     public void setState(String state) {
         this.state = state;
     }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
 }

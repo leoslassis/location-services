@@ -13,14 +13,6 @@ public class ErrorResource {
 	public ErrorResource() {
 	}
 
-	public ErrorResource(final Collection<Error> errors) {
-		this.errors = errors;
-	}
-
-	public static ErrorResource build(Integer code, String message, String localizedMessage) {
-		return new ErrorResource(Collections.singletonList(new Error(code, message, localizedMessage)));
-	}
-
 	public Collection<Error> getErrors() {
 		return errors;
 	}
