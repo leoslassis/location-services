@@ -15,7 +15,7 @@ $ docker-compose build
 $ docker-compose up
 ```
 
-Após executar os comandos temos a aplicação em container, junto com o mysql já populado com algumas localidades
+Após executar os comandos temos a aplicação em execução no container, junto com o mysql já populado com algumas localidades
 
 A documentaço da aplicação consta nessa url 
 (http://localhost:8080/swagger-ui.html#/)
